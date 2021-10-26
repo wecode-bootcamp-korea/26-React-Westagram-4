@@ -7,6 +7,18 @@ import React from 'react';
 import './Main.scss';
 
 class Main extends React.Component {
+  addComment = event => {
+    if (this.state.commentInputValue) {
+      this.setState({
+        commentInputValue: '',
+        addComments: this.state.addComments.concat(
+          this.state.commentInputValue
+        ),
+      });
+    }
+    event.preventDefault();
+  };
+
   render() {
     return (
       <>

@@ -8,7 +8,7 @@ body {
 
 .header {
   height: 54px;
-  width: 1000px;
+  width: 100vw;
   background-color: white;
 
   padding: 0;
@@ -32,8 +32,9 @@ body {
     align-items: center;
     justify-content: center;
     vertical-align: middle;
+    font-size: 30px;
 
-    .logo_icon i {
+    .logo_icon {
       margin-right: 20px;
       flex-direction: row;
       font-size: 30px;
@@ -50,47 +51,48 @@ body {
   }
 
   .serchbar {
-    position: relative;
+    color: #b9b8b8;
+    // position: absolute;
+    // top: 8px;
+    // bottom: -2px;
+    // left: 80px;
+    font-size: 23px;
 
-    .serchbar input {
-      width: 215px;
+    input {
+      width: 300px;
       height: 28px;
       background-color: #f0ebeb;
       border-color: #b9b8b8;
       border-style: solid;
       border-radius: 5px;
       border-width: 1px;
+      // position: absolute;
+
+      // position: relative;
     }
+  }
 
-    .serchbar i {
-      color: #b9b8b8;
-      position: absolute;
-      display: flex;
-      top: 8px;
-      bottom: -2px;
-      left: 80px;
+  .icon {
+    display: flex;
+    font-size: 25px;
+    color: #838080;
+    width: 200px;
+
+    .icon_nav,
+    .icon_heart {
+      margin-right: 15px;
     }
+  }
 
-    .icon {
-      display: flex;
-
-      i {
-        margin-right: 15px;
-        font-size: 25px;
-        color: #838080;
-      }
-
-      .new_mark {
-        background-color: red;
-        border-radius: 20px;
-        border-style: none;
-        width: 6px;
-        height: 6px;
-        position: relative;
-        bottom: -28px;
-        left: -67px;
-      }
-    }
+  .new_mark {
+    background-color: red;
+    border-radius: 20px;
+    border-style: none;
+    width: 6px;
+    height: 6px;
+    position: relative;
+    bottom: -28px;
+    left: -52px;
   }
 }
 
@@ -106,7 +108,7 @@ body {
 
   .feeds {
     width: 700px;
-    height: 1200px;
+    height: 990px;
     position: relative;
     left: 0;
     top: 100px;
@@ -114,6 +116,7 @@ body {
     border-width: 1px;
     border-color: #b9b8b8;
     border-radius: 3px;
+    background-color: white;
 
     .main_user {
       margin: 8px;
@@ -140,10 +143,10 @@ body {
       .user_set {
         padding: 8px;
       }
-    } //메인유저 닫는태ㅔ크,
+    }
   }
   .article {
-    height: 700px;
+    height: 500px;
     width: 700px;
     position: relative;
     top: 5px;
@@ -239,38 +242,44 @@ body {
         border-top: 1px solid #dbdbdb;
         width: 700px;
       }
+    }
+  }
+  .comment {
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: #8e8e8e;
+    input {
+      font-size: 14px;
+      width: 650px;
+      height: 18px;
+      padding: 28px 16px;
+      border-style: none;
+      box-sizing: border-box;
+      color: #262626;
+    }
 
-      .input-comment {
-        font-size: 14px;
-        width: 650px;
-        height: 18px;
-        padding: 28px 16px;
-        border-style: none;
-        box-sizing: border-box;
-        color: #262626;
-      }
-      .input-comment:focus {
-        outline: none;
-      }
-      .input-comment::placeholder {
-        color: #8e8e8e;
-      }
-      button.submit-comment {
-        color: #0095f6;
-        background-color: #fff;
-        border-style: none;
-        height: 40px;
-        width: 40px;
-        padding: 4px;
-        font-size: 14px;
-        font-weight: 600;
-      }
-      .submit-comment:disabled {
-        color: #b9dffc;
-      }
-      button.submit-comment:focus {
-        outline: none;
-      }
+    .input-comment:focus {
+      outline: none;
+    }
+    .input-comment::placeholder {
+      color: #8e8e8e;
+    }
+
+    button {
+      color: #0095f6;
+      background-color: #fff;
+      border-style: none;
+      height: 40px;
+      width: 40px;
+      padding: 4px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    .submit-comment:disabled {
+      color: #b9dffc;
+    }
+    button.submit-comment:focus {
+      outline: none;
     }
   }
 
@@ -324,8 +333,12 @@ body {
         padding: 10px;
 
         .story_text {
-          width: 215px;
+          width: 205px;
           color: #747272;
+        }
+
+        .story_set {
+          font-weight: bold;
         }
       }
       .story_list {
@@ -339,6 +352,7 @@ body {
           margin-bottom: 0px;
           display: flex;
           align-items: center;
+          padding-bottom: 10px;
 
           img {
             width: 50px;
@@ -359,11 +373,17 @@ body {
             display: inline-block;
             margin-left: 10px;
 
-            .user1_name {
+            .user1_name,
+            .user2_name,
+            .user3_name,
+            .user4_name {
               color: black;
               font-weight: bold;
             }
-            .user1_intro {
+            .user1_intro,
+            .user2_intro,
+            .user3_intro,
+            .user4_intro {
               color: #747272;
             }
           }
