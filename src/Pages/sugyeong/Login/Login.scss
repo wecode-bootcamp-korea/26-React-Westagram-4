@@ -87,22 +87,26 @@ body {
       }
     }
 
-    #login__btn {
+    button {
       width: 280px;
       height: 35px;
       padding: 9px;
       margin: 10px auto;
       border: 0;
-      background-color: #0195f7;
       font-size: 14px;
       font-weight: bold;
       color: white;
-      cursor: pointer;
+      cursor: default;
+    }
 
-      &:disabled {
-        background-color: #b2dffc;
-        cursor: default;
-      }
+    .normalButtonColor {
+      background-color: #b2dffc;
+      cursor: default;
+    }
+
+    .changeButtonColor {
+      background-color: #0195f7;
+      cursor: pointer;
     }
   }
 

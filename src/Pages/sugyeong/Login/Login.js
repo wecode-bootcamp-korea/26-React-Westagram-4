@@ -2,23 +2,27 @@ import React from 'react';
 import './Login.scss';
 
 class LoginSg extends React.Component {
+  goToMain = () => {
+    this.props.history.push('/MainSg');
+  };
+
   constructor() {
     super();
     this.state = {
-      id: '',
-      pw: '',
+      idInput: '',
+      pwInput: '',
     };
   }
 
   handleIdInput = e => {
     this.setState({
-      id: e.target.value,
+      idInput: e.target.value,
     });
   };
 
   handlePwInput = e => {
     this.setState({
-      pw: e.target.value,
+      pwInput: e.target.value,
     });
   };
 
@@ -43,7 +47,21 @@ class LoginSg extends React.Component {
                 placeholder="Password"
                 onChange={this.handlePwInput}
               />
-              <button disabled id="login__btn">
+              <button
+                className={
+                  this.state.idInput.includes('@') &&
+                  this.state.pwInput.length >= 5
+                    ? 'changeButtonColor'
+                    : 'normalButtonColor'
+                }
+                disabled={
+                  this.state.idInput.includes('@') &&
+                  this.state.pwInput.length >= 5
+                    ? false
+                    : true
+                }
+                onClick={this.goToMain}
+              >
                 Log In
               </button>
             </form>
