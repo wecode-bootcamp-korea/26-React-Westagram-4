@@ -2,10 +2,6 @@ import React from 'react';
 import './Login.scss';
 
 class Login extends React.Component {
-  goToMain = () => {
-    this.props.history.push('/Main');
-  };
-
   constructor() {
     super();
     this.state = {
@@ -14,28 +10,37 @@ class Login extends React.Component {
       btnActive: false,
     };
   }
+  goToMain = e => {
+    console.log('go to main function');
+    e.preventDefault();
+    console.log(this.state.pwInputVal);
+    fetch('http://10.58.1.74:8000/users/login', {
+      method: 'POST',
+      body: JSON.stringify({
+        email: this.state.inputId,
+        password: this.state.inputPw,
+      }),
+    })
+      .then(response => response.json())
+      .then(result => console.log('결과 : ', result));
+  };
+  // goToMain = () => {
+  //   this.props.history.push('/Main');
+  // };
   handleIdInput = e => {
     this.setState({
       inputId: e.target.value,
     });
-    this.isOkayToGo();
   };
   handlePwInput = e => {
     this.setState({
       inputPw: e.target.value,
     });
-    this.isOkayToGo();
-  };
-
-  isOkayToGo = () => {
-    if (this.state.inputId.includes('@') && this.state.inputPw.length > 5) {
-      this.state.btnActive = true;
-    } else {
-      this.state.btnActive = false;
-    }
   };
 
   render() {
+    let isId = this.state.inputId.includes('@');
+    let isPw = this.state.inputPw.length > 4;
     return (
       <main className="loginContainer">
         <div className="loginInner">
@@ -56,11 +61,11 @@ class Login extends React.Component {
               placeholder="비밀번호"
             />
             <button
-              disabled={this.state.btnActive}
+              disabled={!(isId && isPw)}
               onClick={this.goToMain}
               id="loginButton"
               style={{
-                backgroundColor: this.state.btnActive ? 'red' : 'white',
+                backgroundColor: isId && isPw ? 'red' : 'white',
               }}
             >
               로그인

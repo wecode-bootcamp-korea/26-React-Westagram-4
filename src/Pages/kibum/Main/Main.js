@@ -2,6 +2,31 @@ import React from 'react';
 import './Main.scss';
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      newReply: '',
+      replies: [{ text: '' }],
+    };
+  }
+
+  textChange = e => {
+    this.setState({ newReply: e.target.value });
+  };
+
+  buttonClick = () => {
+    let arr = this.state.replies;
+    arr = arr.concat({ text: this.state.newReply });
+
+    this.setState({ newReply: '', replies: arr });
+  };
+
+  // enterClick = e => {
+  //   if (e.key === 'Enter') {
+  //     this.buttonClick;
+  //     e.target.value = '';
+  //   }
+  // };
   render() {
     return (
       <>
@@ -68,6 +93,20 @@ class Main extends React.Component {
               <input id="input2" type="text" placeholder="댓글달기..." />
               <button id="button">게시</button>
             </div>
+            {/* <ul className="textbox">
+              {this.state.replies.map(e => (
+                <li>e.text</li>
+              ))}
+            </ul>
+            <textarea
+              className="box1_under1"
+              placeholder="댓글 달기..."
+              onChange={this.textChange}
+              onKeyPress={this.enterClick}
+            />
+            <button id="button" onClick={this.buttonClick}>
+              게시
+            </button> */}
           </div>
 
           <div className="box2">
