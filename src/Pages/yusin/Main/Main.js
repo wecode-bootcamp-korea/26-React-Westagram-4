@@ -1,5 +1,6 @@
 import React from 'react';
 import './Main.scss';
+import Child from './Child';
 
 class MainYs extends React.Component {
   constructor() {
@@ -18,10 +19,10 @@ class MainYs extends React.Component {
 
   add = e => {
     let arr = this.state.replies;
-    arr.push({ text: this.state.newReply });
+    const newArr = arr.concat({ text: this.state.newReply });
 
     this.setState({
-      replies: arr,
+      replies: newArr,
       newReply: '',
     });
   };
@@ -31,6 +32,16 @@ class MainYs extends React.Component {
       this.add();
       e.target.value = '';
     }
+  };
+
+  addComment = e => {
+    if (this.state.newReply) {
+      this.setState({
+        replies: this.state.replies.concat(this.state.newReply),
+        newReply: '',
+      });
+    }
+    e.preventDefault();
   };
 
   render() {
@@ -107,14 +118,15 @@ class MainYs extends React.Component {
                   <li>
                     <b>salvame21</b>&nbsp;까불고있네 ㅋㅋ 코딩이나해라
                   </li>
-                  {this.state.replies.map(el => {
+                  <Child commentList={this.state.replies} />
+                  {/* {this.state.replies.map(el => {
                     return (
                       <li>
                         <b>{USER_NAME}</b>
                         {el.text}
                       </li>
                     );
-                  })}
+                  })} */}
                   <div className="time">1시간 전</div>
                 </ul>
               </div>
