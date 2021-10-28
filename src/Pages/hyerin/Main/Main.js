@@ -1,8 +1,21 @@
 import React from 'react';
 import './Main.scss';
-// import '../../Styles/common.scss';
+import '../../Styles/common.scss';
 
 class Main extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      boxComment: [],
+      inputComment: '', // 빈칸 만드러주긔
+    };
+  }
+  newComment = e => {
+    this.setState({
+      inputComment: e.target.value,
+    });
+  };
+
   render() {
     return (
       <>
@@ -94,6 +107,7 @@ class Main extends React.Component {
                   type="text"
                   id="comment_input"
                   placeholder="댓글 달기..."
+                  onChange={this.newComment}
                 />
                 <button type="submit" id="comment_submit" disabled>
                   게시
@@ -108,3 +122,12 @@ class Main extends React.Component {
 }
 
 export default Main;
+
+// - 사용자가 댓글 입력 후 enter 를 누르거나 왼쪽의 버튼 클릭 시 댓글이 추가되도록 구현해주세요.
+// - 댓글 기능을 구현하기 위해서는 배열 데이터 타입을 활용해야 합니다.
+// -Array.map 활용
+
+//1. 댓글창에 댓글이 입력들어온다 ok
+//2. 엔터 누르거나 || 버튼 누르면 댓글 추가
+//2-1. 댓글을 map함수 안에 li로?
+//3. 댓글이 배열안에 추가 되나?..

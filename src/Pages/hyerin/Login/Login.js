@@ -1,6 +1,6 @@
 import React from 'react';
 import './Login.scss';
-import '../../Styles/common.scss';
+// import '../../Styles/common.scss';
 
 class Login extends React.Component {
   constructor() {
@@ -25,10 +25,16 @@ class Login extends React.Component {
   };
 
   isOkayToGo = () => {
+    // eslint-disable-next-line
     if (this.state.inputId.includes('@') && this.state.inputPw.length > 5) {
-      this.state.btnActive = true;
+      this.setState({
+        btnActive: true,
+      });
     } else {
-      this.state.btnActive = false;
+      // eslint-disable-next-line
+      this.setState({
+        btnActive: false,
+      });
     }
   };
   // - ex. ID - `@` 포함 / PW - 5글자 이상
@@ -43,14 +49,14 @@ class Login extends React.Component {
           <div className="input-wrap">
             <input
               onChange={this.handleIdInput}
-              name="inputId"
+              // name="inputId"
               className="id"
               type="text"
               placeholder="&nbsp전화번호, 사용자 이름 또는 이메일"
             />
             <input
               onChange={this.handlePwInput}
-              name="inputPw"
+              // name="inputPw"
               className="password"
               type="password"
               placeholder="&nbsp비밀번호"
@@ -60,7 +66,8 @@ class Login extends React.Component {
             className="btn"
             type="button"
             style={{
-              backgroundColor: this.state.btnActive ? 'blue' : 'skyblue',
+              // eslint-disable-next-line
+              backgroundColor: this.state.btnActive ? 'blue' : 'red',
             }}
           >
             로그인
