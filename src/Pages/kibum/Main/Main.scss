@@ -74,7 +74,7 @@ section {
 
   .box1 {
     width: 400px;
-    height: 600px;
+
     border: solid 1px;
     display: flex;
     flex-direction: column;
@@ -94,7 +94,7 @@ section {
 
     .box1_under {
       width: 400px;
-      height: 110px;
+      height: 44px;
       border: solid 1px;
       font-size: smaller;
 
@@ -105,19 +105,26 @@ section {
 
     .box1_under1 {
       width: 400px;
-      height: 50px;
-      border: solid 1px;
+
+      .textbox {
+        list-style: none;
+      }
+    }
+
+    .writeBox {
+      display: flex;
+      justify-content: space-between;
 
       #input2 {
         text-align: left;
         border: none;
-        padding-left: 8px;
-        padding-right: 8px;
-        padding-top: 7px;
+        width: 330px;
+        // padding-left: 8px;
+        // padding-right: 8px;
+        // padding-top: 7px;
       }
 
       #button {
-        margin-left: 80px;
         border: none;
         background-color: white;
       }

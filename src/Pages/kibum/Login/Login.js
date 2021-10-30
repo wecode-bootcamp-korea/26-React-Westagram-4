@@ -12,9 +12,10 @@ class Login extends React.Component {
   }
   goToMain = e => {
     console.log('go to main function');
-    e.preventDefault();
+    //e.preventDefault();
     console.log(this.state.pwInputVal);
-    fetch('http://10.58.1.74:8000/users/login', {
+
+    fetch('https://westagram-signup.herokuapp.com/login', {
       method: 'POST',
       body: JSON.stringify({
         email: this.state.inputId,
@@ -24,9 +25,9 @@ class Login extends React.Component {
       .then(response => response.json())
       .then(result => console.log('결과 : ', result));
   };
-  // goToMain = () => {
-  //   this.props.history.push('/Main');
-  // };
+  goToMain = () => {
+    this.props.history.push('/Main');
+  };
   handleIdInput = e => {
     this.setState({
       inputId: e.target.value,
